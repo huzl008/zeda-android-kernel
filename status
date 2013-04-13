@@ -1,0 +1,66 @@
+# On branch lsd5rm-6370d-for-zedayiqi
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   .config
+#	modified:   .config.old
+#	modified:   .version
+#	modified:   Module.symvers
+#	modified:   arch/arm/mach-omap2/board-panther.c
+#	modified:   arch/arm/mach-omap2/gpmc.c
+#	modified:   drivers/serial/omap-serial.c
+#	modified:   include/config/auto.conf
+#	modified:   include/config/kernel.release
+#	modified:   include/config/tristate.conf
+#	modified:   include/generated/autoconf.h
+#	modified:   include/generated/compile.h
+#	modified:   include/generated/utsrelease.h
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	0001-dm3730-6370D-zeda-13-4-2.patch
+#	0001-first-from-gpp-renying-version.patch
+#	0002-dm3730-6370D-zeda-13-4-2.patch
+#	arch/arm/mach-omap2/include/mach/mux.h
+#	arch/arm/mach-omap2/include/mach/mux2420.h
+#	arch/arm/mach-omap2/include/mach/mux2430.h
+#	arch/arm/mach-omap2/include/mach/mux34xx.h
+#	arch/arm/mach-omap2/include/mach/mux44xx.h
+#	arch/arm/mach-omap2/include/mach/mux81xx.h
+#	arch/powerpc/boot/dts/.goutputstream-OBXNUW
+#	drivers/video/logo/logo_linux_lierda_clut224-1.ppm
+#	drivers/video/logo/logo_linux_lierda_clut224-2.ppm
+#	drivers/video/logo/test.jpg
+#	huzl.config
+#	huzl2_config
+#	huzl3.config
+#	include/config/bt/hcibtusb.h
+#	include/config/bt/mrvl.h
+#	include/config/can.h
+#	include/config/can/bcm.h
+#	include/config/can/calc/
+#	include/config/can/dev.h
+#	include/config/can/raw.h
+#	include/config/can/sja1000.h
+#	include/config/can/sja1000/
+#	include/config/cfg80211/reg/
+#	include/config/eeprom/
+#	include/config/font/
+#	include/config/framebuffer/
+#	include/config/logo/lierda/
+#	include/config/net/poll/
+#	include/config/netconsole.h
+#	include/config/netpoll.h
+#	include/config/nfs/use/
+#	include/config/nfs/v3.h
+#	include/config/nfs/v4.h
+#	include/config/ntfs/
+#	include/config/root/
+#	include/config/rtl8187.h
+#	include/config/serial/8250/exar/
+#	include/config/snd/soc/wl1271bt.h
+#	status
+#	zjh.config
+no changes added to commit (use "git add" and/or "git commit -a")
