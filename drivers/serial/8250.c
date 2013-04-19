@@ -3174,7 +3174,6 @@ int serial8250_register_port(struct uart_port *port)
 	mutex_lock(&serial_mutex);
 
 	uart = serial8250_find_match_or_unused(port);
-	printk("%d ---%s---%d---@%s\n",uart,__func__,__LINE__,__FILE__);
 	if (uart) {
 		uart_remove_one_port(&serial8250_reg, &uart->port);
 

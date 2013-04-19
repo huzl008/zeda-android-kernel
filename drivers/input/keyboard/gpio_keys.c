@@ -349,7 +349,7 @@ static irqreturn_t gpio_keys_isr(int irq, void *dev_id)
 	struct gpio_keys_button *button = bdata->button;
 
 	BUG_ON(irq != gpio_to_irq(button->gpio));
-
+	printk("%d--%s--%s----\n",__LINE__,__func__,__FILE__);
 	if (bdata->timer_debounce)
 		mod_timer(&bdata->timer,
 			jiffies + msecs_to_jiffies(bdata->timer_debounce));
@@ -377,7 +377,6 @@ static int __devinit gpio_keys_setup_key(struct platform_device *pdev,
 			button->gpio, error);
 		goto fail2;
 	}
-
 	error = gpio_direction_input(button->gpio);
 	if (error < 0) {
 		dev_err(dev, "failed to configure"
@@ -409,7 +408,6 @@ static int __devinit gpio_keys_setup_key(struct platform_device *pdev,
 	 */
 	if (!button->can_disable)
 		irqflags |= IRQF_SHARED;
-
 	error = request_irq(irq, gpio_keys_isr, irqflags, desc, bdata);
 	if (error) {
 		dev_err(dev, "Unable to claim irq %d; error %d\n",

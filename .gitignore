@@ -45,7 +45,8 @@ modules.builtin
 /Module.markers
 /Module.symvers
 *.txt
-
+/arch/arm/boot/compressed/vmlinux
+/arch/arm/boot/compressed/piggy.gzip
 #
 # Debian directory (make deb-pkg)
 #

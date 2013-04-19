@@ -404,6 +404,7 @@ static struct omap2_hsmmc_info mmc[] = {
 		.caps		= MMC_CAP_4_BIT_DATA,
 		.gpio_wp	= -EINVAL,
 	},
+#if 0
 #ifdef CONFIG_WL12XX_PLATFORM_DATA
 	{
 	.name           = "wl1271",
@@ -414,13 +415,14 @@ static struct omap2_hsmmc_info mmc[] = {
 	.nonremovable   = true,
 	},
 #endif
+#endif
 	{}	/* Terminator */
 };
 
 static struct regulator_consumer_supply panther_vmmc1_supply = {
 	.supply			= "vmmc",
 };
-
+#if 0
 #ifdef CONFIG_TI_ST
 
 #define PANTHER_BTEN_GPIO       138
@@ -459,8 +461,8 @@ static struct platform_device btwilink_device = {
 	.id = -1,
 };
 #endif
-
-
+#endif
+#if 0
 #ifdef CONFIG_WL12XX_PLATFORM_DATA
 
 #define PANTHER_WLAN_PMENA_GPIO       (16)
@@ -500,7 +502,7 @@ struct wl12xx_platform_data panther_wlan_data __initdata = {
 	.board_ref_clock = WL12XX_REFCLOCK_38_XTAL, /* 38.4 MHz */
 };
 #endif
-
+#endif
 // This regulator has been enaled in u-boot. The following code is removed since we don't need to control it in kernel.
 #if 0
 static struct regulator_consumer_supply panther_vsim_supply = {
@@ -819,7 +821,7 @@ static struct twl4030_platform_data panther_twldata = {
 	.gpio		= &panther_gpio_data,
 	.codec		= &panther_codec_data,
 	.madc		= &panther_madc_data, 
-	.keypad		= &ynws_kp_data,
+//	.keypad		= &ynws_kp_data,
 // The following table shows the relationship of pantherboard's regulators.
 //
 //	[LDO NAME]	[SCHEMATIC SYMBOLE]	[CONNECTED DEVICE (Outer/Inner)]
@@ -985,7 +987,7 @@ static struct gpio_keys_button gpio_buttons[] = {
 //	To see the definitions of SCANCODE and KEYCODE, please refer to
 //		-- <ROWBOAT_ANDROID>/kernel/include/linux/input.h
 //		-- <ROWBOAT_ANDROID>/sdk/emulators/keymaps/qwerty.kl
-#ifdef CONFIG_TOUCHSCREEN_TSC2007
+//#ifdef CONFIG_TOUCHSCREEN_TSC2007
 	{
 		.code			= KEY_MENU,
 		.gpio			= 138,
@@ -1000,7 +1002,7 @@ static struct gpio_keys_button gpio_buttons[] = {
 		.active_low		= true,
 		.wakeup			= 1,
 	},
-#endif
+//#endif
 };
 
 static struct gpio_keys_platform_data gpio_key_info = {
@@ -1405,27 +1407,30 @@ static struct omap_board_mux board_mux[] __initdata = {
 	OMAP3_MUX(MCBSP1_CLKR, OMAP_MUX_MODE4|OMAP_PIN_INPUT),
 #endif
 //modify end
-#ifdef CONFIG_WL12XX_PLATFORM_DATA
+//#ifdef CONFIG_WL12XX_PLATFORM_DATA
 	/* WLAN IRQ - GPIO 112 */
-	OMAP3_MUX(CSI2_DX0, OMAP_MUX_MODE4 | OMAP_PIN_INPUT),
+	//OMAP3_MUX(CSI2_DX0, OMAP_MUX_MODE4 | OMAP_PIN_INPUT),
 
 	/* WLAN POWER ENABLE - GPIO 16 */
-	OMAP3_MUX(ETK_D2, OMAP_MUX_MODE4 | OMAP_PIN_OUTPUT),
+	//OMAP3_MUX(ETK_D2, OMAP_MUX_MODE4 | OMAP_PIN_OUTPUT),
 
 	/* MMC2 SDIO pin muxes for WL12xx */
-	OMAP3_MUX(SDMMC2_CLK, OMAP_MUX_MODE0 | OMAP_PIN_OUTPUT),
-	OMAP3_MUX(SDMMC2_CMD, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
-	OMAP3_MUX(SDMMC2_DAT0, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
-	OMAP3_MUX(SDMMC2_DAT1, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
-	OMAP3_MUX(SDMMC2_DAT2, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
-	OMAP3_MUX(SDMMC2_DAT3, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
-#endif
+	//OMAP3_MUX(SDMMC2_CLK, OMAP_MUX_MODE0 | OMAP_PIN_OUTPUT),
+	//OMAP3_MUX(SDMMC2_CMD, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
+	//OMAP3_MUX(SDMMC2_DAT0, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
+	//OMAP3_MUX(SDMMC2_DAT1, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
+	//OMAP3_MUX(SDMMC2_DAT2, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
+	//OMAP3_MUX(SDMMC2_DAT3, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP),
+//#endif
     	OMAP3_MUX(SYS_NIRQ, OMAP_MUX_MODE0 | OMAP_PIN_INPUT_PULLUP |
             OMAP_PIN_OFF_INPUT_PULLUP | OMAP_PIN_OFF_OUTPUT_LOW |
             OMAP_PIN_OFF_WAKEUPENABLE),
-        
- 
-
+        //gpio-key
+	OMAP3_MUX(SDMMC2_DAT6, OMAP_MUX_MODE4|OMAP_PIN_INPUT),
+ 	OMAP3_MUX(SDMMC2_DAT0, OMAP_MUX_MODE4|OMAP_PIN_INPUT),
+	//554 int a b c
+	OMAP3_MUX(MCBSP_CLKS, OMAP_MUX_MODE4|OMAP_PIN_INPUT),
+ 	//OMAP3_MUX(SDMMC2_DAT0, OMAP_MUX_MODE4|OMAP_PIN_INPUT),
 	
 	/* CAM_RESET GPIO_98 */
 	//OMAP3_MUX(CAM_FLD,OMAP_MUX_MODE4|OMAP_PIN_OUTPUT),
@@ -1485,6 +1490,7 @@ static struct omap_board_mux board_mux[] __initdata = {
         
 	OMAP3_MUX(UART2_RX,OMAP_MUX_MODE4|OMAP_PIN_OFF_INPUT_PULLDOWN),//as non uart2 
 	OMAP3_MUX(UART2_TX,OMAP_MUX_MODE4|OMAP_PIN_OFF_INPUT_PULLDOWN),//as non uart2
+	OMAP3_MUX(UART1_CTS,OMAP_MUX_MODE4|OMAP_PIN_OFF_INPUT_PULLDOWN),//as non uart1
 //	OMAP3_MUX(CAM_XCLKB,OMAP_MUX_MODE0|OMAP_PIN_OFF_INPUT_PULLDOWN),	
 	
 //	OMAP3_MUX(CSI2_DY0,OMAP_MUX_MODE4|OMAP_PIN_OFF_INPUT_PULLDOWN),
@@ -1609,18 +1615,15 @@ static void __init panther_init(void)
 #ifdef CONFIG_USB_ANDROID
 	panther_android_gadget_init();
 #endif
-
+#if 0
 #ifdef CONFIG_WL12XX_PLATFORM_DATA
 	/* WL12xx WLAN Init */
 	if (wl12xx_set_platform_data(&panther_wlan_data))
 		pr_err("error setting wl12xx data\n");
 	platform_device_register(&panther_wlan_regulator);
 #endif
-
-#ifdef CONFIG_TI_ST
-    /* Config GPIO to output for BT */
-	omap_mux_init_gpio(PANTHER_BTEN_GPIO, OMAP_PIN_OUTPUT);
 #endif
+
     omap3_beagle_pm_init();
 
 }
